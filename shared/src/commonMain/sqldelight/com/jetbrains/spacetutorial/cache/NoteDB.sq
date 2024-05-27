@@ -1,0 +1,23 @@
+CREATE TABLE  NoteEntity(
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+title Text NOT NULL,
+content Text NOT NULL,
+colotHex Integer NOT NULL ,
+created  Integer NOT NULL
+);
+
+addNote:
+INSERT OR REPLACE INTO NoteEntity(id,title,content,colotHex,created)
+VALUES (?,?,?,?,?);
+
+getAllNotes:
+SELECT * FROM  NoteEntity;
+
+deleteNote:
+DELETE FROM NoteEntity WHERE id IS  :id;
+
+getNoteById:
+SELECT * FROM NoteEntity WHERE id IS :id;
+
+updateNote:
+UPDATE NoteEntity SET title = :title ,content = :content WHERE id IS :id;
